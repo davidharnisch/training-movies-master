@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<ComponentManifest>
+  <Name value="CodelistGroupMember" />
+  <Generator value="*" />
+  <Type value="Object" />
+  <Properties>
+    <PropertyManifest>
+      <Name value="codelist" />
+      <IsRequired value="True" />
+      <Type value="ApiObject" />
+      <UiEditor value="contract/ICodelistGroupMember" />
+    </PropertyManifest>
+  </Properties>
+</ComponentManifest>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<GlobalApiObjects>
+  <Name value="globalApiObjects" />
+  <ApiObjects>
+    <ServerConnection identity="ServerConnection.db7b3eef075548988df768923691922c">
+      <Name value="moviesServer" />
+      <codelistsUrl value="" />
+      <listsUrl value="" />
+      <rootUrl value="http://localhost:8080/" />
+    </ServerConnection>
+    <UrlRouter identity="UrlRouter.69a71809c45249cbb2999d13bb9100c0">
+      <Name value="urlRouter" />
+      <routes>
+        <UrlRouteCfg identity="UrlRouter.69a71809c45249cbb2999d13bb9100c0">
+          <form reference="+UiParts.movieDetail" />
+          <params value="id" />
+          <url value="detail" />
+        </UrlRouteCfg>
+      </routes>
+    </UrlRouter>
+  </ApiObjects>
+</GlobalApiObjects>

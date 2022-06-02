@@ -1,0 +1,99 @@
+{
+	"info": {
+		"_postman_id": "a3c0c59d-c8a4-49b7-b79f-05c072d0fbdb",
+		"name": "training-movies",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/delete",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"id\": \"3JmvsVQ5y\" }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Galaxy Quest\",\n\t\"type\": \"movie\",\n\t\"yearOfRelease\": 1999\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/update",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"FpGNJV_Qg\",\n\t\"name\": \"Galaxy Quest\",\n\t\"type\": \"movie\",\n\t\"yearOfRelease\": 1999,\n\t\"starring\": [\n\t\t{\n\t\t\t\"actorName\": \"Tim Allen\"\n\t\t},\n\t\t{\n\t\t\t\"actorName\": \"Sigourney Weaver\"\n\t\t},\n\t\t{\n\t\t\t\"actorName\": \"Alan Rickman\"\n\t\t}\n\t]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"update"
+					]
+				},
+				"description": "id je třeba změnit podle toho, co vrátí create"
+			},
+			"response": []
+		}
+	]
+}

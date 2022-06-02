@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<ApiObjectManifest>
+  <Name value="CodelistGroup" />
+  <Generator value="codelistGroup.js" />
+  <Events>
+    <EventManifest>
+      <Name value="OnBackgroundLoadingFinished" />
+      <Parameters>
+        <EventParameterManifest>
+          <Name value="data" />
+        </EventParameterManifest>
+      </Parameters>
+    </EventManifest>
+  </Events>
+  <Methods>
+    <MethodManifest>
+      <Name value="loadDataAsync" />
+      <ReturnType>
+        <ObjectType reference="+Components.CodelistGroupLoadingResult" />
+      </ReturnType>
+      <Parameters>
+        <ParameterManifest>
+          <Name value="date" />
+          <BaseType value="DateTime" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="startBackgroundLoading" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="date" />
+          <BaseType value="DateTime" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="finishBackgroundLoadingAsync" />
+      <ReturnType>
+        <ObjectType reference="+Components.CodelistGroupLoadingResult" />
+      </ReturnType>
+    </MethodManifest>
+  </Methods>
+  <Properties>
+    <PropertyManifest>
+      <Name value="server" />
+      <IsRequired value="True" />
+      <Type value="ApiObject" />
+      <UiEditor value="contract/ICodelistProvider" />
+    </PropertyManifest>
+    <PropertyManifest>
+      <Name value="codelists" />
+      <Type value="collection-CodelistGroupMember" />
+    </PropertyManifest>
+    <PropertyManifest>
+      <Name value="useBatch" />
+      <Default value="true" />
+      <IsRequired value="True" />
+      <Type value="bool" />
+      <UiCaption value="Use $batch loading" />
+      <UiCategory value="Behaviour" />
+    </PropertyManifest>
+  </Properties>
+</ApiObjectManifest>

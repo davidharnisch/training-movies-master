@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<ApiObjectManifest>
+  <Name value="ServerConnection" />
+  <Generator value="serverConnection.js" />
+  <Contracts>
+    <ImplementsContractManifest>
+      <Name value="IServerConnection" />
+    </ImplementsContractManifest>
+    <ImplementsContractManifest>
+      <Name value="ICodelistProvider" />
+    </ImplementsContractManifest>
+  </Contracts>
+  <Events>
+    <EventManifest>
+      <Name value="OnIsAliveTimeout" />
+      <Parameters>
+        <EventParameterManifest>
+          <Name value="data" />
+        </EventParameterManifest>
+      </Parameters>
+    </EventManifest>
+    <EventManifest>
+      <Name value="OnCodelistsChanged" />
+      <Parameters>
+        <EventParameterManifest>
+          <Name value="data" />
+        </EventParameterManifest>
+      </Parameters>
+    </EventManifest>
+  </Events>
+  <Methods>
+    <MethodManifest>
+      <Name value="getAsync" />
+      <ReturnType>
+        <ObjectType reference="+Components.Response" />
+      </ReturnType>
+      <Parameters>
+        <ParameterManifest>
+          <Name value="url" />
+          <BaseType value="String" />
+          <IsRequired value="True" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="postAsync" />
+      <ReturnType>
+        <ObjectType reference="+Components.Response" />
+      </ReturnType>
+      <Parameters>
+        <ParameterManifest>
+          <Name value="url" />
+          <BaseType value="String" />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="data" />
+          <BaseType value="String" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="setLanguage" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="value" />
+          <BaseType value="String" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="setVersion" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="value" />
+          <BaseType value="String" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="setHeader" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="name" />
+          <BaseType value="String" />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="value" />
+          <BaseType value="String" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="getCsrfToken" />
+      <ReturnType>
+        <BaseType value="String" />
+      </ReturnType>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="setIsAliveTimeout" />
+      <Description value="Sets isAlive timeout in minutes" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="isAliveTimeout" />
+          <BaseType value="Integer" />
+          <UiDescription value="Number of minutes from last server response after which to trigger client is not alive" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="getIsAliveTimeout" />
+      <Description value="Gets isAlive timeout in minutes" />
+      <ReturnType>
+        <BaseType value="Integer" />
+      </ReturnType>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="getRootUrl" />
+      <Description value="Returns rootUrl property value in run time" />
+      <ReturnType>
+        <BaseType value="String" />
+      </ReturnType>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="getFileAsync" />
+      <ReturnType>
+        <ObjectType reference="+Components.Response" />
+      </ReturnType>
+      <Parameters>
+        <ParameterManifest>
+          <Name value="url" />
+          <BaseType value="String" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+  </Methods>
+  <Properties>
+    <PropertyManifest>
+      <Name value="rootUrl" />
+      <Configurable value="True" />
+      <Type value="string" />
+    </PropertyManifest>
+    <PropertyManifest>
+      <Name value="codelistsUrl" />
+      <Default value="codelists/" />
+      <Type value="string" />
+      <UiCaption value="Codelists URL part (i.e. /codelists/)" />
+    </PropertyManifest>
+    <PropertyManifest>
+      <Name value="listsUrl" />
+      <Default value="datasets/" />
+      <Type value="string" />
+      <UiCaption value="DeclLists part of url (ie. /datasets/)" />
+    </PropertyManifest>
+    <PropertyManifest>
+      <Name value="withCredentials" />
+      <Type value="bool" />
+      <UiCaption value="withCredentials" />
+      <UiDescription value="Set to true if you need XmlHttpRequest to be done with this parameter. It is relevant in case you are using NT authentication and endpoint is on different port/server than client application." />
+    </PropertyManifest>
+    <PropertyManifest>
+      <Name value="useCsrfToken" />
+      <Type value="bool" />
+      <UiCaption value="Use CSRF token" />
+      <UiCategory value="CSRF" />
+    </PropertyManifest>
+    <PropertyManifest>
+      <Name value="csrfTokenHeader" />
+      <Default value="X-CSRFToken" />
+      <Type value="string" />
+      <UiCaption value="CSRF token header name" />
+      <UiCategory value="CSRF" />
+    </PropertyManifest>
+    <PropertyManifest>
+      <Name value="csrfTokenUrl" />
+      <Default value="/GetCSRFToken" />
+      <Type value="string" />
+      <UiCaption value="CSRF token URL" />
+      <UiCategory value="CSRF" />
+    </PropertyManifest>
+    <PropertyManifest>
+      <Name value="codelistsLastChangeHeader" />
+      <Default value="X-CodelistsLastChange" />
+      <Type value="string" />
+      <UiCaption value="Last codelists change header name" />
+    </PropertyManifest>
+    <PropertyManifest>
+      <Name value="enablePendingRequestFlag" />
+      <Type value="bool" />
+      <UiCategory value="Support" />
+      <UiDescription value="When set to true, waiting for server response is signaled by setting window.sf.support.{pendingRequestFlagName] to true." />
+    </PropertyManifest>
+    <PropertyManifest>
+      <Name value="pendingRequestFlagName" />
+      <Type value="string" />
+      <UiCategory value="Support" />
+      <UiDescription value="Name of boolean variable in window.sf.support." />
+    </PropertyManifest>
+    <PropertyManifest>
+      <Name value="rootUrl_comment" />
+      <Type value="string" />
+      <UiCaption value="Root url comment" />
+      <UiDescription value="Root url comment for config.js" />
+    </PropertyManifest>
+  </Properties>
+</ApiObjectManifest>

@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<ApiObjectManifest>
+  <Name value="FilteredCodelist" />
+  <Generator value="filteredCodelist.js" />
+  <Contracts>
+    <ImplementsContractManifest>
+      <Name value="IReferenceList" />
+    </ImplementsContractManifest>
+  </Contracts>
+  <Methods>
+    <MethodManifest>
+      <Name value="filterByValidityDateTime" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="dt" />
+          <BaseType value="DateTime" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="getDataAsJson" />
+      <ReturnType>
+        <BaseType value="String" />
+      </ReturnType>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="getFilter" />
+      <ReturnType>
+        <ObjectType reference="+Components.CodelistFilter" />
+      </ReturnType>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="resetFilter" />
+      <ReturnType>
+        <ObjectType reference="+Components.CodelistFilter" />
+      </ReturnType>
+      <Parameters>
+        <ParameterManifest>
+          <Name value="applyImmediately" />
+          <BaseType value="Bool" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="getItemByStringColumnAsync" />
+      <ReturnType>
+        <ObjectType reference="+Components.CodelistItem" />
+      </ReturnType>
+      <Parameters>
+        <ParameterManifest>
+          <Name value="columnName" />
+          <BaseType value="String" />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="columnValue" />
+          <BaseType value="String" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="getItemByIntegerColumnAsync" />
+      <ReturnType>
+        <ObjectType reference="+Components.CodelistItem" />
+      </ReturnType>
+      <Parameters>
+        <ParameterManifest>
+          <Name value="columnName" />
+          <BaseType value="String" />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="columnValue" />
+          <BaseType value="Integer" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="getCount" />
+      <Description value="Gets count of currently filtered items" />
+      <ReturnType>
+        <BaseType value="Integer" />
+      </ReturnType>
+    </MethodManifest>
+  </Methods>
+  <Properties>
+    <PropertyManifest>
+      <Name value="codelistSource" />
+      <Type value="ApiObject" />
+      <UiEditor value="contract/IReferenceList" />
+    </PropertyManifest>
+  </Properties>
+</ApiObjectManifest>

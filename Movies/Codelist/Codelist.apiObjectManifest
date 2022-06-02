@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<ApiObjectManifest>
+  <Name value="Codelist" />
+  <Generator value="codelist.js" />
+  <Contracts>
+    <ImplementsContractManifest>
+      <Name value="IReferenceList" />
+    </ImplementsContractManifest>
+    <ImplementsContractManifest>
+      <Name value="ICodelistGroupMember" />
+    </ImplementsContractManifest>
+  </Contracts>
+  <Methods>
+    <MethodManifest>
+      <Name value="loadDataAsync" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="date" />
+          <BaseType value="DateTime" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="getDataAsJson" />
+      <ReturnType>
+        <BaseType value="String" />
+      </ReturnType>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="fillFromJson" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="dataAsJson" />
+          <BaseType value="String" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="startLoadingData" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="date" />
+          <BaseType value="DateTime" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="setDate" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="date" />
+          <BaseType value="Date" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="setDateTime" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="datetime" />
+          <BaseType value="DateTime" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="getItemByStringColumnAsync" />
+      <ReturnType>
+        <ObjectType reference="+Components.CodelistItem" />
+      </ReturnType>
+      <Parameters>
+        <ParameterManifest>
+          <Name value="columnName" />
+          <BaseType value="String" />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="columnValue" />
+          <BaseType value="String" />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="relevantDate" />
+          <BaseType value="DateTime" />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="requeryIfLoadedAndNotFound" />
+          <BaseType value="Bool" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="getItemByIntegerColumnAsync" />
+      <ReturnType>
+        <ObjectType reference="+Components.CodelistItem" />
+      </ReturnType>
+      <Parameters>
+        <ParameterManifest>
+          <Name value="columnName" />
+          <BaseType value="String" />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="columnValue" />
+          <BaseType value="Integer" />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="relevantDate" />
+          <BaseType value="DateTime" />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="requeryIfLoadedAndNotFound" />
+          <BaseType value="Bool" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="loadDescReplaceValues" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="replaceValuesJson" />
+          <BaseType value="String" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="setFilter" />
+      <Description value="Sets new value of 'filter' property" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="filter" />
+          <BaseType value="String" />
+          <UiCaption value="Filter (in OData format)" />
+          <UiDescription value="Example: Country eq CZ" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="getFilter" />
+      <Description value="Gets value of 'filter' property" />
+      <ReturnType>
+        <BaseType value="String" />
+      </ReturnType>
+    </MethodManifest>
+  </Methods>
+  <Properties>
+    <PropertyManifest>
+      <Name value="name" />
+      <IsRequired value="True" />
+      <Type value="string" />
+      <UiCaption value="Codelist name" />
+    </PropertyManifest>
+    <PropertyManifest>
+      <Name value="server" />
+      <Type value="ApiObject" />
+      <UiEditor value="contract/ICodelistProvider" />
+    </PropertyManifest>
+    <PropertyManifest>
+      <Name value="filter" />
+      <Type value="string" />
+      <UiCaption value="Filter (in OData format)" />
+      <UiDescription value="Example: Country eq CZ" />
+    </PropertyManifest>
+    <PropertyManifest>
+      <Name value="filterByDate" />
+      <Default value="true" />
+      <Type value="bool" />
+    </PropertyManifest>
+    <PropertyManifest>
+      <Name value="columns" />
+      <IsRequired value="True" />
+      <Type value="collection-CodelistColumn" />
+      <UiCategory value="Columns" />
+    </PropertyManifest>
+    <PropertyManifest>
+      <Name value="createDescriptionOnClient" />
+      <Default value="Key-Description" />
+      <IsRequired value="True" />
+      <Type value="string" />
+      <UiCategory value="Client description column" />
+      <UiEditor value="list/No|Key-Description|DescriptionOrKey" />
+    </PropertyManifest>
+    <PropertyManifest>
+      <Name value="clientDescriptionColumnName" />
+      <Default value="_description" />
+      <Type value="string" />
+      <UiCategory value="Client description column" />
+    </PropertyManifest>
+    <PropertyManifest>
+      <Name value="language" />
+      <Type value="string" />
+      <UiDescription value="Overrides language code automatically sent in reguest headers, parameter must be supported also on server" />
+    </PropertyManifest>
+  </Properties>
+</ApiObjectManifest>

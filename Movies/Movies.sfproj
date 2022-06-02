@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<ProjectRoot>
+  <CreatedOn value="2022-05-31T18:22:32.2959063+02:00" />
+  <Language value="en" />
+  <ProjectName value="Movies" />
+  <StartupForm reference="/(main.7c38881854634c98b618a33e44aa8b0d)+UiParts.master" />
+  <MainForm>
+    <ProjectMainFormOptions MaxPageWidth="1170px" MinPageWidth="700px" />
+  </MainForm>
+  <Options>
+    <ProjectOptions>
+      <LocalizationEnabled value="True" />
+      <ManageFolderContent value="False" />
+      <DataToForm>
+        <DataToFormConfiguration BoolEditor="Sf.LibraryOne.CheckBox" CollectionEditor="Repeater" ComputedText="Sf.LibraryOne.Label" DateEditor="Sf.LibraryOne.DatePicker" DateTimeEditor="Sf.LibraryOne.DatePicker" DecimalEditor="ScreenFactory.Data.Model.Ui.TextBox" EnumEditor="ScreenFactory.Data.Model.Ui.EnumCombo" IntegerEditor="ScreenFactory.Data.Model.Ui.TextBox" ReferenceEditor="Sf.LibraryOne.ReferenceCombo" StringEditor="ScreenFactory.Data.Model.Ui.TextBox" />
+      </DataToForm>
+      <Theme>
+        <ProjectTheme>
+          <ThemeName value="m8" />
+        </ProjectTheme>
+      </Theme>
+    </ProjectOptions>
+  </Options>
+  <Languages>
+    <ProjectLanguageItem Language="en" />
+  </Languages>
+  <PackageReferences>
+    <PackageReference Alias="CorePackage" IsComponentLib="True" IsReadOnly="True" IsSystem="True" Origin="system://CorePackage/CorePackage.package">
+      <ReferencedIdentity value="CorePackage.5f000000000045f00000000000000000" />
+      <ReferencedVersion value="0.0.0" />
+    </PackageReference>
+    <PackageReference Alias="main" Origin="main\main.package">
+      <ReferencedIdentity value="main.7c38881854634c98b618a33e44aa8b0d" />
+      <ReferencedVersion value="0.0.0" />
+    </PackageReference>
+    <PackageReference Alias="ServerConnection" IsComponentLib="True" Origin="ServerConnection\ServerConnection.package">
+      <ReferencedIdentity value="ServerConnection.db7b3eef075548988df768923691922c" />
+      <ReferencedVersion value="4.6.0" />
+    </PackageReference>
+    <PackageReference Alias="Codelist" IsComponentLib="True" Origin="Codelist\Codelist.package">
+      <ReferencedIdentity value="Codelist.2fd2d7af4a6d445bad8a58610632f8e0" />
+      <ReferencedVersion value="4.4.0" />
+    </PackageReference>
+    <PackageReference Alias="UrlRouter" IsComponentLib="True" Origin="UrlRouter\UrlRouter.package">
+      <ReferencedIdentity value="UrlRouter.69a71809c45249cbb2999d13bb9100c0" />
+      <ReferencedVersion value="4.0.0" />
+    </PackageReference>
+  </PackageReferences>
+</ProjectRoot>

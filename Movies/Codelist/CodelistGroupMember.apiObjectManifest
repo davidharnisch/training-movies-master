@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<ApiObjectManifest>
+  <Name value="CodelistGroupMember" />
+  <Generator value="*" />
+  <Properties>
+    <PropertyManifest>
+      <Name value="Codelist" />
+      <Type value="ApiObject" />
+      <UiEditor value="contract/IReferenceList" />
+    </PropertyManifest>
+  </Properties>
+</ApiObjectManifest>

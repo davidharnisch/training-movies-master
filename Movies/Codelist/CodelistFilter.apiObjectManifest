@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<ApiObjectManifest>
+  <Name value="CodelistFilter" />
+  <CanBeFormLocal value="False" />
+  <CanBeGlobal value="False" />
+  <Generator value="*" />
+  <Methods>
+    <MethodManifest>
+      <Name value="filterByValidityDateTime" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="validityDate" />
+          <BaseType value="DateTime" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="excludeItemsByStringColumn" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="columnName" />
+          <BaseType value="String" />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="value" />
+          <BaseType value="String" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="excludeItemsByIntColumn" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="columnName" />
+          <BaseType value="String" />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="value" />
+          <BaseType value="Integer" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="excludeItemsByBoolColumn" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="columnName" />
+          <BaseType value="String" />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="value" />
+          <BaseType value="Bool" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="includeItemsByStringColumn" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="columnName" />
+          <BaseType value="String" />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="value" />
+          <BaseType value="String" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="includeItemsByIntColumn" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="columnName" />
+          <BaseType value="String" />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="value" />
+          <BaseType value="Integer" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="includeItemsByBoolColumn" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="columnName" />
+          <BaseType value="String" />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="value" />
+          <BaseType value="Bool" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="commit" />
+      <ReturnType />
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="reset" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="applyImmediately" />
+          <BaseType value="Bool" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="excludeItemsByRegex" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="columnName" />
+          <BaseType value="String" />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="regex" />
+          <BaseType value="String" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="includeItemsByRegex" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="columnName" />
+          <BaseType value="String" />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="regex" />
+          <BaseType value="String" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+  </Methods>
+</ApiObjectManifest>
