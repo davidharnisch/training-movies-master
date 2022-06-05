@@ -7,6 +7,7 @@
     <Attribute>
       <Name value="name" />
       <Caption value="Name" />
+      <IsRequired value="True" />
       <DeclaredType>
         <AttributeType />
       </DeclaredType>

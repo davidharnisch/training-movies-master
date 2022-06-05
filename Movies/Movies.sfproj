@@ -46,5 +46,9 @@
       <ReferencedIdentity value="UrlRouter.69a71809c45249cbb2999d13bb9100c0" />
       <ReferencedVersion value="4.0.0" />
     </PackageReference>
+    <PackageReference Alias="Page" IsComponentLib="True" Origin="Page\Page.package">
+      <ReferencedIdentity value="Page.f7aa0c151c64407daef13910dcf7b72a" />
+      <ReferencedVersion value="1.13.0" />
+    </PackageReference>
   </PackageReferences>
 </ProjectRoot>

@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<ApiObjectManifest>
+  <Name value="Page" />
+  <Generator value="page.js" />
+  <Methods>
+    <MethodManifest>
+      <Name value="setLang" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="lang" />
+          <BaseType value="String" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="setTitle" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="title" />
+          <BaseType value="String" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="confirm" />
+      <ReturnType>
+        <BaseType value="Bool" />
+      </ReturnType>
+      <Parameters>
+        <ParameterManifest>
+          <Name value="message" />
+          <BaseType value="String" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="scrollToTop" />
+      <ReturnType />
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="getLang" />
+      <ReturnType>
+        <BaseType value="String" />
+      </ReturnType>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="navigateToUrl" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="url" />
+          <BaseType value="String" />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="replace" />
+          <BaseType value="Bool" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="getCurrentUrlProtocol" />
+      <Description value="Returns string like &quot;https:&quot;. Internally mapped to windows.location.protocol." />
+      <ReturnType>
+        <BaseType value="String" />
+      </ReturnType>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="getCurrentUrlOrigin" />
+      <Description value="Returns string like &quot;https://google.com&quot;. Internally mapped to window.location.origin." />
+      <ReturnType>
+        <BaseType value="String" />
+      </ReturnType>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="getCurrentUrlPathName" />
+      <Description value="Returns string like &quot;/id=42&quot;. Internally mapped to windows.location.pathname." />
+      <ReturnType>
+        <BaseType value="String" />
+      </ReturnType>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="getCurrentUrlHash" />
+      <Description value="Returns hash part of url. Internally mapped to windows.location.hash." />
+      <ReturnType>
+        <BaseType value="String" />
+      </ReturnType>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="print" />
+      <ReturnType />
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="focusControl" />
+      <Description value="Focuses editor type control by component name" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="name" />
+          <BaseType value="String" />
+          <UiDescription value="Component name, that is assigned in form designer." />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="pointer" />
+          <BaseType value="String" />
+          <UiDescription value="If the pointer contains collection with item index and you want to focus that collection item, pass the pointer as argument.&#xD;&#xA;If defaultString() is passed, the last of component with same name is focused." />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="focusControlByIdx" />
+      <Description value="Focuses editor type control by component name" />
+      <OverloadName value="focusControl" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="name" />
+          <BaseType value="String" />
+          <UiDescription value="Component name, that is assigned in form designer." />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="collectionIdx" />
+          <BaseType value="Integer" />
+          <UiDescription value="If control is in repeater, pass 1-based collection index as argument. Otherwise pass defaultInt().&#xD;&#xA;If defaultInt() is passed, the last of component with same name is focused." />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="scrollTo" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="name" />
+          <BaseType value="String" />
+          <UiDescription value="Component name, that is assigned in form designer." />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="pointer" />
+          <BaseType value="String" />
+          <UiDescription value="If the pointer contains collection with item index and you want to scroll to that collection item, pass the pointer as argument." />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="scrollToWithOffset" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="name" />
+          <BaseType value="String" />
+          <UiDescription value="Component name, that is assigned in form designer." />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="pointer" />
+          <BaseType value="String" />
+          <UiDescription value="If the pointer contains collection with item index and you want to scroll to that collection item, pass the pointer as argument." />
+        </ParameterManifest>
+        <ParameterManifest>
+          <Name value="offset" />
+          <BaseType value="Integer" />
+          <UiDescription value="Offset in pixels, use when page contains something like fixed page header." />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="openNewTab" />
+      <Description value="This method has to be called in direct response to user action otherwise browser will block it" />
+      <ReturnType>
+        <ObjectType reference="+Components.BrowserTab" />
+      </ReturnType>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="focusMainHeading" />
+      <Description value="Focuses h1 element as it is supposed to be first relevant element of main content.&#xD;&#xA;Focusing h1 after every navigation is recommended practice to ensure accessibility for users using screen readers.&#xD;&#xA;Every form has to contain exactly one h1 element." />
+      <ReturnType />
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="focusHyperlink" />
+      <Description value="Focuses Hyperlink control by component name" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="name" />
+          <BaseType value="String" />
+          <UiDescription value="Component name, that is assigned in form designer." />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="focusButton" />
+      <Description value="Focuses Button or Imagebutton control by component name" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="name" />
+          <BaseType value="String" />
+          <UiDescription value="Component name, that is assigned in form designer." />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="focusFirstInvalidInput" />
+      <Description value="Focuses first input with some client validation error in current form or modal form." />
+      <ReturnType />
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="openNamedTab" />
+      <Description value="This method has to be called in direct response to user action otherwise browser will block it" />
+      <ReturnType>
+        <ObjectType reference="+Components.BrowserTab" />
+      </ReturnType>
+      <Parameters>
+        <ParameterManifest>
+          <Name value="name" />
+          <BaseType value="String" />
+          <UiDescription value="Name (=&quot;browsing context&quot;) of browser tab" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+  </Methods>
+  <Properties>
+    <PropertyManifest>
+      <Name value="OnLangChanged" />
+      <Type value="ScreenFactory.Data.Model.Actions.ActionEvent" />
+    </PropertyManifest>
+  </Properties>
+</ApiObjectManifest>

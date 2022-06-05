@@ -106,6 +106,60 @@
             </CssClassConditional>
           </CssClass>
         </Panel>
+        <Button>
+          <Name value="Create" />
+          <Caption value="Create new" />
+          <Panel.Height value="#" />
+          <Panel.Width value="150px" />
+          <OnClick>
+            <ActionEvent ReferencedAction="~handler_button1_OnClick" />
+          </OnClick>
+          <Bindings>
+            <Binding SourceProperty="IsVisible" Expression="not form.id.hasValue()" />
+          </Bindings>
+          <CssClass>
+            <CssClassConditional>
+              <ClassName value="{theme}-button" />
+              <IsThemedStyle value="True" />
+            </CssClassConditional>
+          </CssClass>
+        </Button>
+        <Button>
+          <Name value="Update" />
+          <Caption value="Update" />
+          <Panel.Height value="#" />
+          <Panel.Width value="150px" />
+          <OnClick>
+            <ActionEvent ReferencedAction="~handler_Update_OnClick" />
+          </OnClick>
+          <Bindings>
+            <Binding SourceProperty="IsVisible" Expression="form.id.hasValue()" />
+          </Bindings>
+          <CssClass>
+            <CssClassConditional>
+              <ClassName value="{theme}-button" />
+              <IsThemedStyle value="True" />
+            </CssClassConditional>
+          </CssClass>
+        </Button>
+        <Button>
+          <Name value="Delete" />
+          <Caption value="Delete" />
+          <Panel.Height value="#" />
+          <Panel.Width value="150px" />
+          <OnClick>
+            <ActionEvent ReferencedAction="~handler_Delete_OnClick" />
+          </OnClick>
+          <Bindings>
+            <Binding SourceProperty="IsVisible" Expression="form.id.hasValue()" />
+          </Bindings>
+          <CssClass>
+            <CssClassConditional>
+              <ClassName value="{theme}-button" />
+              <IsThemedStyle value="True" />
+            </CssClassConditional>
+          </CssClass>
+        </Button>
       </Children>
       <CssClass>
         <CssClassConditional>
@@ -128,19 +182,9 @@
           </Children>
         </Complex>
         <Attribute>
-          <Name value="movieDetailJson" />
-          <Caption value="Movie detail json" />
-          <DataContextParameter.IsInput value="True" />
-          <DataContextParameter.IsInputRequired value="True" />
-          <DeclaredType>
-            <AttributeType />
-          </DeclaredType>
-        </Attribute>
-        <Attribute>
           <Name value="id" />
           <Caption value="Id" />
           <DataContextParameter.IsInput value="True" />
-          <DataContextParameter.IsInputRequired value="True" />
           <DeclaredType>
             <AttributeType />
           </DeclaredType>
@@ -161,17 +205,21 @@ var url = apiobjects.urlRouter.findFormUrl(navigation.main.movieDetail.fullName)
 url.addString("id", form.id)
 url.updatePageUrl()
 
+//load data
+
 form.actions.loadData()
 
-// URL router aby bylo přesměrování při zadání špatné URL na homepage
-/*
-if form.detail.hasValue() then
+
+// URL router for redirect to movielist
+
+
+if (form.detail.hasValue()) or (not form.id.hasValue()) then
 	
 	else
 	navigation.main.moviesList.go()
 endif
 
-*/
+
 	
 
 
@@ -190,16 +238,97 @@ endif
     <ActionBlock>
       <Name value="loadData" />
       <ActionLangBody IsValid="True">
-        <Script><![CDATA[form.detail.fromJson(form.movieDetailJson)]]></Script>
+        <Script><![CDATA[
+var response = apiobjects.moviesServer.getAsync("record?id=" + form.id)
+
+
+if response.isError() then
+	system.consoleError(response.getErrorMessage())
+else
+	form.detail.fromJson(response.getJsonString())
+
+	
+endif
+
+
+
+//form.detail.fromJson(form.movieDetailJson)]]></Script>
       </ActionLangBody>
       <DataContext>
         <ActionDataContext />
       </DataContext>
     </ActionBlock>
     <ActionBlock>
-      <Name value="action1" />
+      <Name value="handler_button1_OnClick" />
+      <IsPrivate value="True" />
       <ActionLangBody IsValid="True">
-        <Script><![CDATA[form.detail.fromJson(form.movieDetailJson)]]></Script>
+        <Script><![CDATA[
+var data = form.detail.toJson()
+
+var response = apiobjects.moviesServer.postAsync("create",data)
+
+
+if response.isError() then
+	system.consoleError(response.getErrorMessage())
+else
+	
+	
+	navigation.main.moviesList.go()
+
+	
+endif]]></Script>
+      </ActionLangBody>
+      <DataContext>
+        <ActionDataContext />
+      </DataContext>
+    </ActionBlock>
+    <ActionBlock>
+      <Name value="handler_Update_OnClick" />
+      <IsPrivate value="True" />
+      <ActionLangBody IsValid="True">
+        <Script><![CDATA[var data = form.detail.toJson()
+
+var response = apiobjects.moviesServer.postAsync("update",data)
+
+if response.isError() then
+	system.consoleError(response.getErrorMessage())
+else
+	
+	
+	//navigation.main.moviesList.go()
+
+	
+endif]]></Script>
+      </ActionLangBody>
+      <DataContext>
+        <ActionDataContext />
+      </DataContext>
+    </ActionBlock>
+    <ActionBlock>
+      <Name value="handler_Delete_OnClick" />
+      <IsPrivate value="True" />
+      <ActionLangBody IsValid="True">
+        <Script><![CDATA[
+if isTrue(page.confirm("Are you sure?? You will loose all your data")) then 
+
+var data = form.detail.toJson()
+
+var response = apiobjects.moviesServer.postAsync("delete",data)
+
+if response.isError() then
+	system.consoleError(response.getErrorMessage())
+else
+	
+	
+	navigation.main.moviesList.go()
+
+	
+endif
+
+
+else
+
+endif]]></Script>
       </ActionLangBody>
       <DataContext>
         <ActionDataContext />

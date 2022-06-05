@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<DataEntity>
+  <Name value="total" />
+  <Caption value="Total" />
+  <Children>
+    <Include>
+      <Include reference="+DataEntities.basic" />
+    </Include>
+    <Attribute>
+      <Name value="mainDirector" />
+      <Caption value="Main director" />
+      <DeclaredType>
+        <AttributeType />
+      </DeclaredType>
+    </Attribute>
+  </Children>
+</DataEntity>

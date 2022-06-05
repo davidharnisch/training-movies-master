@@ -19,5 +19,8 @@
         </UrlRouteCfg>
       </routes>
     </UrlRouter>
+    <Page identity="Page.f7aa0c151c64407daef13910dcf7b72a">
+      <Name value="page" />
+    </Page>
   </ApiObjects>
 </GlobalApiObjects>

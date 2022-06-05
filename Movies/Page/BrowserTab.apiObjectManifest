@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<ApiObjectManifest>
+  <Name value="BrowserTab" />
+  <CanBeFormLocal value="False" />
+  <CanBeGlobal value="False" />
+  <Generator value="*" />
+  <Methods>
+    <MethodManifest>
+      <Name value="setUrl" />
+      <ReturnType />
+      <Parameters>
+        <ParameterManifest>
+          <Name value="url" />
+          <BaseType value="String" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="close" />
+      <ReturnType />
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="focus" />
+      <ReturnType />
+    </MethodManifest>
+    <MethodManifest>
+      <Name value="containsElement" />
+      <Description value="Tests if document in the BrowserTab contains elementId. Typically, can be used to check if &quot;mainFormHolder&quot; alement is present - i.e. some SF app is loaded." />
+      <ReturnType>
+        <BaseType value="Bool" />
+      </ReturnType>
+      <Parameters>
+        <ParameterManifest>
+          <Name value="elementId" />
+          <BaseType value="String" />
+        </ParameterManifest>
+      </Parameters>
+    </MethodManifest>
+  </Methods>
+</ApiObjectManifest>

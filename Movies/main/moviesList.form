@@ -10,6 +10,21 @@
       <Panel.Height value="#" />
       <Panel.Width value="*" />
       <Children>
+        <Button>
+          <Name value="button1" />
+          <Caption value="Create new movies/serise" />
+          <Panel.Height value="#" />
+          <Panel.Width value="150px" />
+          <OnClick>
+            <ActionEvent ReferencedAction="~handler_button1_OnClick" />
+          </OnClick>
+          <CssClass>
+            <CssClassConditional>
+              <ClassName value="{theme}-button" />
+              <IsThemedStyle value="True" />
+            </CssClassConditional>
+          </CssClass>
+        </Button>
         <Panel>
           <Name value="enumCombo1_parent_parent" />
           <Orientation value="Horizontal" />
@@ -290,6 +305,13 @@
             <AttributeType />
           </DeclaredType>
         </Attribute>
+        <Attribute>
+          <Name value="name" />
+          <Caption value="type" />
+          <DeclaredType>
+            <AttributeType />
+          </DeclaredType>
+        </Attribute>
       </Children>
     </DataContext>
   </DataContext>
@@ -332,6 +354,7 @@ else
 	endif
 	*/
 	form.movies.fromJson(response.getJsonString())
+	system.console(response.getJsonString())
 	
 	if form.type = enums.Type.Movies then	
 		form.movies.fromJson(form.movies.where(current.type = "movie").toJson())	
@@ -382,8 +405,39 @@ form.searchByActor.clear()]]></Script>
       <Name value="handler_hyperLink1_OnClick" />
       <IsPrivate value="True" />
       <ActionLangBody IsValid="True">
-        <Script><![CDATA[navigation.main.movieDetail.go(params.data.toJson(), params.data.id)
+        <Script><![CDATA[navigation.main.movieDetail.withId(params.data.id).go()
 
+]]></Script>
+      </ActionLangBody>
+      <DataContext>
+        <ActionDataContext />
+      </DataContext>
+    </ActionBlock>
+    <ActionBlock>
+      <Name value="handler_button1_OnClick" />
+      <IsPrivate value="True" />
+      <ActionLangBody IsValid="True">
+        <Script><![CDATA[/*
+form.name = "movie"
+
+
+var response = apiobjects.moviesServer.postAsync("create", form.name)
+
+
+if response.isError() then
+	system.consoleError(response.getErrorMessage())
+else
+	
+	
+	navigation.main.movieDetail.go()
+
+	
+endif
+
+
+*/
+
+navigation.main.movieDetail.go()
 ]]></Script>
       </ActionLangBody>
       <DataContext>

@@ -9,5 +9,6 @@
     <PackageItem Src="Type.metaType" />
     <PackageItem Src="movieDetail.form" />
     <PackageItem Src="master.form" />
+    <PackageItem Src="total.dataEntity" />
   </Items>
 </Package>
