@@ -15,6 +15,7 @@
     <Attribute>
       <Name value="type" />
       <Caption value="Type" />
+      <IsRequired value="True" />
       <DeclaredType>
         <AttributeType />
       </DeclaredType>
@@ -25,6 +26,8 @@
       <DeclaredType>
         <AttributeType>
           <BaseType value="Integer" />
+          <IntMax value="2022" />
+          <IntMin value="1900" />
         </AttributeType>
       </DeclaredType>
     </Attribute>
