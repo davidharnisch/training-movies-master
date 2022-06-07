@@ -13,6 +13,7 @@
         <Label>
           <Name value="label1" />
           <Data value="Movies" />
+          <Heading value="h1" />
           <Panel.Height value="#" />
           <Panel.Width value="300px" />
           <CssClass>
@@ -22,6 +23,15 @@
             </CssClassConditional>
           </CssClass>
         </Label>
+        <Breadcrumbs identity="Breadcrumbs.4d3eeadca3c54f1caa1d677db7e07acb">
+          <Name value="breadcrumbs1" />
+          <controller reference="+GlobalApiObjects.breadcrumbsCtrl" />
+          <Panel.Height value="#" />
+          <Panel.Width value="*" />
+          <OnItemClick>
+            <ActionEvent ReferencedAction="~handler_breadcrumbs1_OnItemClick" />
+          </OnItemClick>
+        </Breadcrumbs>
         <FormPlaceholder>
           <Name value="formPlaceholder1" />
           <InitialForm reference="+UiParts.moviesList" />
@@ -40,4 +50,21 @@
   <DataContext>
     <DataContext />
   </DataContext>
+  <Actions>
+    <ActionBlock>
+      <Name value="handler_breadcrumbs1_OnItemClick" />
+      <IsPrivate value="True" />
+      <ActionLangBody IsValid="True">
+        <Script><![CDATA[form.apiobjects.eventDispatcher1.sendMessage("master", "breadcrumbClick", params.id)]]></Script>
+      </ActionLangBody>
+      <DataContext>
+        <ActionDataContext />
+      </DataContext>
+    </ActionBlock>
+  </Actions>
+  <ApiObjects>
+    <EventDispatcher identity="EventDispatcher.eb764ceb30274f1e9a3d051d512d6b26">
+      <Name value="eventDispatcher1" />
+    </EventDispatcher>
+  </ApiObjects>
 </Form>

@@ -101,5 +101,87 @@
         </Attribute>
       </Children>
     </Complex>
+    <Collection>
+      <Name value="seasons" />
+      <Caption value="Seasons" />
+      <Children>
+        <Attribute>
+          <Name value="number" />
+          <Caption value="Number" />
+          <DeclaredType>
+            <AttributeType>
+              <BaseType value="Integer" />
+            </AttributeType>
+          </DeclaredType>
+        </Attribute>
+        <Collection>
+          <Name value="episodes" />
+          <Caption value="Episodes" />
+          <Children>
+            <Attribute>
+              <Name value="episodeName" />
+              <Caption value="Episode name" />
+              <DeclaredType>
+                <AttributeType />
+              </DeclaredType>
+            </Attribute>
+            <Complex>
+              <Name value="rating" />
+              <Caption value="Rating" />
+              <Children>
+                <Attribute>
+                  <Name value="dateOfWatching" />
+                  <Caption value="Date of watching" />
+                  <DeclaredType>
+                    <AttributeType>
+                      <BaseType value="Date" />
+                      <DateAllowFuture value="False" />
+                    </AttributeType>
+                  </DeclaredType>
+                </Attribute>
+                <Attribute>
+                  <Name value="seenItWhole" />
+                  <Caption value="Seen it whole" />
+                  <IsRequired value="True" />
+                  <DeclaredType>
+                    <AttributeType>
+                      <BaseType value="Bool" />
+                    </AttributeType>
+                  </DeclaredType>
+                </Attribute>
+                <Attribute>
+                  <Name value="score" />
+                  <Caption value="Score 1-5 (like in school)" />
+                  <IsRequired value="True" />
+                  <DeclaredType>
+                    <AttributeType>
+                      <BaseType value="Integer" />
+                      <IntMax value="5" />
+                      <IntMin value="1" />
+                    </AttributeType>
+                  </DeclaredType>
+                  <Validators>
+                    <Validator Name="val1">
+                      <ErrorMessage IsValid="True">
+                        <ExpressionText><![CDATA["You have to seen it whole"]]></ExpressionText>
+                        <ResultType>
+                          <BaseType value="String" />
+                        </ResultType>
+                      </ErrorMessage>
+                      <IsValid IsValid="True">
+                        <ExpressionText><![CDATA[isTrue(seenItWhole)]]></ExpressionText>
+                        <ResultType>
+                          <BaseType value="Bool" />
+                        </ResultType>
+                      </IsValid>
+                    </Validator>
+                  </Validators>
+                </Attribute>
+              </Children>
+            </Complex>
+          </Children>
+        </Collection>
+      </Children>
+    </Collection>
   </Children>
 </DataEntity>
