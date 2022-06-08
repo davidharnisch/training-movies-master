@@ -58,5 +58,9 @@
       <ReferencedIdentity value="EventDispatcher.eb764ceb30274f1e9a3d051d512d6b26" />
       <ReferencedVersion value="1.1.0" />
     </PackageReference>
+    <PackageReference Alias="groupItem" IsComponentLib="True" Origin="GroupItem\GroupItem.package">
+      <ReferencedIdentity value="groupItem.5a6b8e35dae64b4cafe1e0c390297e27" />
+      <ReferencedVersion value="1.2.0" />
+    </PackageReference>
   </PackageReferences>
 </ProjectRoot>

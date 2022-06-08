@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<PackageLocalizations>
+  <Name value="localizations" />
+  <Strings>
+    <LocalizedString LocID="Remove">
+      <Values>
+        <LocaleValue Lang="en" Value="Remove" />
+        <LocaleValue Lang="cs" Value="Odstranit" />
+        <LocaleValue Lang="fi" Value="Poista" />
+        <LocaleValue Lang="sv" Value="Ta bort" />
+        <LocaleValue Lang="sr" Value="Uklonite" />
+        <LocaleValue Lang="me" Value="Uklonite" />
+      </Values>
+    </LocalizedString>
+  </Strings>
+</PackageLocalizations>

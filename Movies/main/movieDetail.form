@@ -132,10 +132,27 @@
                                   <Children>
                                     <Panel>
                                       <Name value="panel4" />
-                                      <Orientation value="Vertical" />
+                                      <Orientation value="Horizontal" />
                                       <Panel.Height value="#" />
                                       <Panel.Width value="*" />
                                       <Children>
+                                        <CheckBox>
+                                          <Name value="actorCheckbox" />
+                                          <CaptionPosition value="Hide" />
+                                          <Panel.Height value="#" />
+                                          <Panel.Width value="150px" />
+                                          <Bindings>
+                                            <Binding SourceProperty="Data" Expression="isChecked" />
+                                            <Binding SourceProperty="IsRequiredMarkVisible" Expression="isChecked.isRequired()" />
+                                            <Binding SourceProperty="Caption" Expression="isChecked.caption()" />
+                                          </Bindings>
+                                          <CssClass>
+                                            <CssClassConditional>
+                                              <ClassName value="{theme}-checkbox" />
+                                              <IsThemedStyle value="True" />
+                                            </CssClassConditional>
+                                          </CssClass>
+                                        </CheckBox>
                                         <TextBox>
                                           <Name value="textBox6" />
                                           <CaptionVAlign value="Middle" />
@@ -195,6 +212,21 @@
                           <Panel.Width value="150px" />
                           <OnClick>
                             <ActionEvent ReferencedAction="~handler_addActor_OnClick" />
+                          </OnClick>
+                          <CssClass>
+                            <CssClassConditional>
+                              <ClassName value="{theme}-button" />
+                              <IsThemedStyle value="True" />
+                            </CssClassConditional>
+                          </CssClass>
+                        </Button>
+                        <Button>
+                          <Name value="deleteActor" />
+                          <Caption value="Delete Actor" />
+                          <Panel.Height value="#" />
+                          <Panel.Width value="150px" />
+                          <OnClick>
+                            <ActionEvent ReferencedAction="~handler_addActor_OnClick1" />
                           </OnClick>
                           <CssClass>
                             <CssClassConditional>
@@ -378,7 +410,7 @@
           </CssClass>
         </Panel>
         <GroupBox>
-          <Name value="seasons" />
+          <Name value="groupBox3" />
           <Panel.Height value="#" />
           <Panel.Width value="*" />
           <Content>
@@ -529,6 +561,36 @@
                                     </CssClassConditional>
                                   </CssClass>
                                 </Repeater>
+                                <Button>
+                                  <Name value="addEpisodes" />
+                                  <Caption value="Add episodes" />
+                                  <Panel.Height value="#" />
+                                  <Panel.Width value="150px" />
+                                  <OnClick>
+                                    <ActionEvent ReferencedAction="~handler_addEpisodes_OnClick" />
+                                  </OnClick>
+                                  <CssClass>
+                                    <CssClassConditional>
+                                      <ClassName value="{theme}-button" />
+                                      <IsThemedStyle value="True" />
+                                    </CssClassConditional>
+                                  </CssClass>
+                                </Button>
+                                <Button>
+                                  <Name value="deleteEpisodes" />
+                                  <Caption value="Delete episodes" />
+                                  <Panel.Height value="#" />
+                                  <Panel.Width value="150px" />
+                                  <OnClick>
+                                    <ActionEvent ReferencedAction="~handler_addEpisodes_OnClick1" />
+                                  </OnClick>
+                                  <CssClass>
+                                    <CssClassConditional>
+                                      <ClassName value="{theme}-button" />
+                                      <IsThemedStyle value="True" />
+                                    </CssClassConditional>
+                                  </CssClass>
+                                </Button>
                               </Children>
                               <CssClass>
                                 <CssClassConditional>
@@ -569,11 +631,11 @@
                 </Repeater>
                 <Button>
                   <Name value="addSeason" />
-                  <Caption value="Add Season" />
+                  <Caption value="Add season" />
                   <Panel.Height value="#" />
                   <Panel.Width value="150px" />
                   <OnClick>
-                    <ActionEvent ReferencedAction="~handler_addActor_OnClick1" />
+                    <ActionEvent ReferencedAction="~handler_addSeason_OnClick" />
                   </OnClick>
                   <CssClass>
                     <CssClassConditional>
@@ -603,12 +665,12 @@
           </CssClass>
         </GroupBox>
         <Button>
-          <Name value="Create" />
+          <Name value="Create1" />
           <Caption value="Create new" />
           <Panel.Height value="#" />
           <Panel.Width value="150px" />
           <OnClick>
-            <ActionEvent ReferencedAction="~handler_button1_OnClick" />
+            <ActionEvent ReferencedAction="~handler_button1_OnClick2" />
           </OnClick>
           <Bindings>
             <Binding SourceProperty="IsVisible" Expression="not form.id.hasValue()" />
@@ -632,6 +694,24 @@
           <Bindings>
             <Binding SourceProperty="IsVisible" Expression="form.id.hasValue()" />
             <Binding SourceProperty="IsEnabled" Expression="form.detail.isValid()" />
+          </Bindings>
+          <CssClass>
+            <CssClassConditional>
+              <ClassName value="{theme}-button" />
+              <IsThemedStyle value="True" />
+            </CssClassConditional>
+          </CssClass>
+        </Button>
+        <Button>
+          <Name value="Update1" />
+          <Caption value="Update Test" />
+          <Panel.Height value="#" />
+          <Panel.Width value="150px" />
+          <OnClick>
+            <ActionEvent ReferencedAction="~handler_Update_OnClick1" />
+          </OnClick>
+          <Bindings>
+            <Binding SourceProperty="IsVisible" Expression="form.id.hasValue()" />
           </Bindings>
           <CssClass>
             <CssClassConditional>
@@ -720,6 +800,23 @@
           </Validators>
         </Attribute>
       </Children>
+      <Modifiers>
+        <Modifier>
+          <Name value="modifier_22B48249_starring" />
+          <SourcePath value="detail.starring" />
+          <Children>
+            <Attribute>
+              <Name value="isChecked" />
+              <Caption value="Is checked" />
+              <DeclaredType>
+                <AttributeType>
+                  <BaseType value="Bool" />
+                </AttributeType>
+              </DeclaredType>
+            </Attribute>
+          </Children>
+        </Modifier>
+      </Modifiers>
     </DataContext>
   </DataContext>
   <OnCreate>
@@ -805,30 +902,6 @@ endif
       </DataContext>
     </ActionBlock>
     <ActionBlock>
-      <Name value="handler_button1_OnClick" />
-      <IsPrivate value="True" />
-      <ActionLangBody IsValid="True">
-        <Script><![CDATA[
-var data = form.detail.toJson()
-
-var response = apiobjects.moviesServer.postAsync("create",data)
-
-
-if response.isError() then
-	system.consoleError(response.getErrorMessage())
-else
-	
-	
-	navigation.main.moviesList.go()
-
-	
-endif]]></Script>
-      </ActionLangBody>
-      <DataContext>
-        <ActionDataContext />
-      </DataContext>
-    </ActionBlock>
-    <ActionBlock>
       <Name value="handler_Update_OnClick" />
       <IsPrivate value="True" />
       <ActionLangBody IsValid="True">
@@ -886,6 +959,11 @@ endif]]></Script>
       <ActionLangBody IsValid="True">
         <Script><![CDATA[if form.type = enums.Type.Movies then	
 		form.detail.type = "movie"
+			if form.detail.seasons.hasValue() then
+				if isTrue(page.confirm("Are you sure?? You will loose all your data with season")) then 
+				form.detail.seasons.clear()
+				endif
+			endif
 		endif
 	
 	if form.type = enums.Type.Series then
@@ -907,7 +985,29 @@ form.detail.type = toLower(toString(form.type))
       </DataContext>
     </ActionBlock>
     <ActionBlock>
-      <Name value="handler_addActor_OnClick1" />
+      <Name value="handler_eventDispatcher1_OnMessage" />
+      <IsPrivate value="True" />
+      <ActionLangBody IsValid="True">
+        <Script><![CDATA[if (params.type = "breadcrumbClick") AND (params.data = "list") then
+	navigation.main.moviesList.go()
+endif]]></Script>
+      </ActionLangBody>
+      <DataContext>
+        <ActionDataContext />
+      </DataContext>
+    </ActionBlock>
+    <ActionBlock>
+      <Name value="handler_addActor_OnClick2" />
+      <IsPrivate value="True" />
+      <ActionLangBody IsValid="True">
+        <Script><![CDATA[form.detail.starring.addItem()]]></Script>
+      </ActionLangBody>
+      <DataContext>
+        <ActionDataContext />
+      </DataContext>
+    </ActionBlock>
+    <ActionBlock>
+      <Name value="handler_button1_OnClick1" />
       <IsPrivate value="True" />
       <ActionLangBody IsValid="True">
         <Script><![CDATA[form.detail.seasons.addItem()]]></Script>
@@ -917,12 +1017,118 @@ form.detail.type = toLower(toString(form.type))
       </DataContext>
     </ActionBlock>
     <ActionBlock>
-      <Name value="handler_eventDispatcher1_OnMessage" />
+      <Name value="handler_button1_OnClick2" />
       <IsPrivate value="True" />
       <ActionLangBody IsValid="True">
-        <Script><![CDATA[if (params.type = "breadcrumbClick") AND (params.data = "list") then
+        <Script><![CDATA[
+var data = form.detail.toJson()
+
+var response = apiobjects.moviesServer.postAsync("create",data)
+
+
+if response.isError() then
+	system.consoleError(response.getErrorMessage())
+else
+	
+	
 	navigation.main.moviesList.go()
+
+	
 endif]]></Script>
+      </ActionLangBody>
+      <DataContext>
+        <ActionDataContext />
+      </DataContext>
+    </ActionBlock>
+    <ActionBlock>
+      <Name value="handler_addSeason_OnClick" />
+      <IsPrivate value="True" />
+      <ActionLangBody IsValid="True">
+        <Script><![CDATA[form.detail.seasons.addItem()]]></Script>
+      </ActionLangBody>
+      <DataContext>
+        <ActionDataContext />
+      </DataContext>
+    </ActionBlock>
+    <ActionBlock>
+      <Name value="handler_addEpisodes_OnClick" />
+      <IsPrivate value="True" />
+      <ActionLangBody IsValid="True">
+        <Script><![CDATA[foreach e in form.detail.seasons do
+	e.episodes.addItem()
+endfor]]></Script>
+      </ActionLangBody>
+      <DataContext>
+        <ActionDataContext />
+      </DataContext>
+    </ActionBlock>
+    <ActionBlock>
+      <Name value="handler_Update_OnClick1" />
+      <IsPrivate value="True" />
+      <ActionLangBody IsValid="True">
+        <Script><![CDATA[
+
+if form.detail.isValid() then
+
+
+var data = form.detail.toJson()
+
+var response = apiobjects.moviesServer.postAsync("update",data)
+
+if response.isError() then
+	system.consoleError(response.getErrorMessage())
+	
+endif
+
+
+else
+
+system.alert("You did not fill all required fields")
+
+endif]]></Script>
+      </ActionLangBody>
+      <DataContext>
+        <ActionDataContext />
+      </DataContext>
+    </ActionBlock>
+    <ActionBlock>
+      <Name value="handler_addEpisodes_OnClick1" />
+      <IsPrivate value="True" />
+      <ActionLangBody IsValid="True">
+        <Script><![CDATA[foreach e in form.detail.seasons do
+	e.episodes.removeItem(1)
+endfor]]></Script>
+      </ActionLangBody>
+      <DataContext>
+        <ActionDataContext />
+      </DataContext>
+    </ActionBlock>
+    <ActionBlock>
+      <Name value="handler_addActor_OnClick1" />
+      <IsPrivate value="True" />
+      <ActionLangBody IsValid="True">
+        <Script><![CDATA[/*
+if isTrue() then
+
+form.detail.starring.removeItem(1)
+
+endif
+
+*/
+
+foreach a in form.detail.starring do
+
+if a.isChecked = True then
+
+var x = a.index()
+form.detail.starring.removeItem(x)
+
+else
+
+
+endif
+
+endfor]]></Script>
       </ActionLangBody>
       <DataContext>
         <ActionDataContext />

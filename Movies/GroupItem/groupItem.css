@@ -1,0 +1,35 @@
+.sffw-group-item-body {
+	padding: 10px;
+}
+
+.sffw-group-item-caption {
+    cursor: pointer;
+    text-decoration: inherit;
+    padding-right: 0.1em;
+    padding-left: 0.1em;
+    display: inline-block;
+}
+
+.sffw-group-item-caption:not(h1, h2, h3, h4, h5, h6) {
+    font-size: 1.1em;
+    line-height: inherit;
+}
+
+.gi-border-collapsed{
+    border: none;
+    border-top: 2px groove threedface;
+    border-image: initial;
+}
+
+.sffw-group-item-icon,
+.sffw-group-item-removeButton {
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: 1.3em;
+}
+
+.sffw-group-item > fieldset > legend button {
+    border-color: transparent;
+    background-color: transparent;
+    padding: 0;
+}

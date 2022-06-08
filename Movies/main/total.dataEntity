@@ -108,6 +108,7 @@
         <Attribute>
           <Name value="number" />
           <Caption value="Number" />
+          <IsRequired value="True" />
           <DeclaredType>
             <AttributeType>
               <BaseType value="Integer" />
@@ -128,6 +129,7 @@
             <Complex>
               <Name value="rating" />
               <Caption value="Rating" />
+              <IsRequired value="True" />
               <Children>
                 <Attribute>
                   <Name value="dateOfWatching" />

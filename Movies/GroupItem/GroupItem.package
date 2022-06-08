@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<Package IsComponentLib="True">
+  <Identity value="groupItem.5a6b8e35dae64b4cafe1e0c390297e27" />
+  <Version value="1.2.0" />
+  <Items>
+    <ResourceItem ResourceName="GroupItem.png" Action="None" OutputFileName="GroupItem.png" Src="GroupItem.png" />
+    <PackageItem Src="GroupItem.componentManifest" />
+    <ResourceItem ResourceName="groupItem.js" LinkerAction="Script" OutputFileName="groupItem.js" Src="groupItem.js" />
+    <ResourceItem ResourceName="groupItem.css" LinkerAction="Css" OutputFileName="groupItem.css" Src="groupItem.css" />
+    <PackageItem Src="localizations.packageLocalizations" />
+  </Items>
+</Package>
