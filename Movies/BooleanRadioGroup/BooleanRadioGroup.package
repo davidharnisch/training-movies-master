@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<Package IsComponentLib="True">
+  <Identity value="BooleanRadioGroup.de0e18f561d946ab8e2be9b1b64cfff7" />
+  <Description value="Radiobuttons editor of bool value" />
+  <Version value="1.0.0" />
+  <Items>
+    <PackageItem Src="BooleanRadioGroup.componentManifest" />
+    <ResourceItem ResourceName="BooleanRadioGroup.png" Action="None" OutputFileName="BooleanRadioGroup.png" Src="BooleanRadioGroup.png" />
+    <ResourceItem ResourceName="booleanRadioGroupGenerator.js" Action="None" OutputFileName="booleanRadioGroupGenerator.js" Src="booleanRadioGroupGenerator.js" />
+  </Items>
+</Package>

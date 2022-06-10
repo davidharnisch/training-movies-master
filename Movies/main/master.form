@@ -12,10 +12,10 @@
       <Children>
         <Label>
           <Name value="label1" />
-          <Data value="Movies" />
+          <Data value="Records of series and movies" />
           <Heading value="h1" />
           <Panel.Height value="#" />
-          <Panel.Width value="300px" />
+          <Panel.Width value="*" />
           <CssClass>
             <CssClassConditional>
               <ClassName value="{theme}-label" />
@@ -38,6 +38,98 @@
           <Panel.Height value="#" />
           <Panel.Width value="*" />
         </FormPlaceholder>
+        <Panel>
+          <Name value="panel3" />
+          <Orientation value="Horizontal" />
+          <Panel.Height value="50px" />
+          <Panel.Width value="*" />
+          <CssClass>
+            <CssClassConditional>
+              <ClassName value="{theme}-panel" />
+              <IsThemedStyle value="True" />
+            </CssClassConditional>
+          </CssClass>
+        </Panel>
+        <Panel>
+          <Name value="panel2" />
+          <Orientation value="Horizontal" />
+          <Panel.Height value="#" />
+          <Panel.Width value="*" />
+          <Children>
+            <Panel>
+              <Name value="label2_parent" />
+              <Orientation value="Vertical" />
+              <Panel.Height value="#" />
+              <Panel.VerticalAlignment value="Middle" />
+              <Panel.Width value="50%" />
+              <Children>
+                <Label>
+                  <Name value="label2" />
+                  <Data value="Created by Solitea" />
+                  <Heading value="h3" />
+                  <Panel.Height value="#" />
+                  <Panel.Width value="*" />
+                  <CssClass>
+                    <CssClassConditional>
+                      <ClassName value="{theme}-label" />
+                      <IsThemedStyle value="True" />
+                    </CssClassConditional>
+                    <CssClassConditional>
+                      <ClassName value="fontWhite" />
+                    </CssClassConditional>
+                  </CssClass>
+                </Label>
+              </Children>
+              <CssClass>
+                <CssClassConditional>
+                  <ClassName value="{theme}-panel" />
+                  <IsThemedStyle value="True" />
+                </CssClassConditional>
+              </CssClass>
+            </Panel>
+            <Panel>
+              <Name value="label3_parent" />
+              <Orientation value="Vertical" />
+              <Panel.Height value="#" />
+              <Panel.VerticalAlignment value="Middle" />
+              <Panel.Width value="50%" />
+              <Children>
+                <Label>
+                  <Name value="label3" />
+                  <Data value="2022" />
+                  <Heading value="h3" />
+                  <Panel.Height value="#" />
+                  <Panel.HorizontalAlignment value="Right" />
+                  <Panel.Width value="80px" />
+                  <CssClass>
+                    <CssClassConditional>
+                      <ClassName value="{theme}-label" />
+                      <IsThemedStyle value="True" />
+                    </CssClassConditional>
+                    <CssClassConditional>
+                      <ClassName value="fontWhite" />
+                    </CssClassConditional>
+                  </CssClass>
+                </Label>
+              </Children>
+              <CssClass>
+                <CssClassConditional>
+                  <ClassName value="{theme}-panel" />
+                  <IsThemedStyle value="True" />
+                </CssClassConditional>
+              </CssClass>
+            </Panel>
+          </Children>
+          <CssClass>
+            <CssClassConditional>
+              <ClassName value="{theme}-panel" />
+              <IsThemedStyle value="True" />
+            </CssClassConditional>
+            <CssClassConditional>
+              <ClassName value="footer" />
+            </CssClassConditional>
+          </CssClass>
+        </Panel>
       </Children>
       <CssClass>
         <CssClassConditional>

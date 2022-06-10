@@ -21,6 +21,7 @@
         <Attribute>
           <Name value="actorName" />
           <Caption value="Actor name" />
+          <IsRequired value="True" />
           <DeclaredType>
             <AttributeType />
           </DeclaredType>
@@ -34,6 +35,7 @@
         <Attribute>
           <Name value="genre" />
           <Caption value="Genre" />
+          <IsRequired value="True" />
           <DeclaredType>
             <AttributeType />
           </DeclaredType>
@@ -50,6 +52,7 @@
     <Complex>
       <Name value="rating" />
       <Caption value="Rating" />
+      <IsRequired value="True" />
       <Children>
         <Attribute>
           <Name value="dateOfWatching" />

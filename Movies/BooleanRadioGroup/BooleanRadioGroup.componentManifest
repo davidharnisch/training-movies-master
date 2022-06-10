@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<ComponentManifest>
+  <Name value="BooleanRadioGroup" />
+  <Generator value="booleanRadioGroupGenerator.js" />
+  <Type value="Editor" />
+  <UiCategory value="SFFW" />
+  <UiDescription value="Radiobuttons editor of bool value. Respects project option setting &quot;IconStyleRadios&quot;." />
+  <UiIcon value="BooleanRadioGroup.png" />
+  <Properties>
+    <PropertyManifest>
+      <Name value="Data" />
+      <Bindable value="True" />
+      <IsRequired value="True" />
+      <Type value="bool" />
+      <UiCaption value="Value" />
+      <UiCategory value="Common" />
+    </PropertyManifest>
+    <PropertyManifest>
+      <Name value="ItemCaptionPosition" />
+      <Default value="Right" />
+      <Type value="string" />
+      <UiCategory value="Appearance" />
+      <UiDescription value="Position of caption of individual radio buttons." />
+      <UiEditor value="list/Right|Left" />
+      <UiSortCaption value="CaptionPosition" />
+    </PropertyManifest>
+    <PropertyManifest>
+      <Name value="Orientation" />
+      <Default value="Vertical" />
+      <Type value="string" />
+      <UiCategory value="Appearance" />
+      <UiDescription value="Orientation of radio buttons - in the line or each on separate line." />
+      <UiEditor value="list/Vertical|Horizontal" />
+    </PropertyManifest>
+  </Properties>
+</ComponentManifest>

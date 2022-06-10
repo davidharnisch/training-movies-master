@@ -12,7 +12,7 @@
       <Children>
         <Button>
           <Name value="button1" />
-          <Caption value="Create new movies/serise" />
+          <Caption value="Create new" />
           <Panel.Height value="#" />
           <Panel.Width value="150px" />
           <OnClick>
@@ -39,12 +39,12 @@
               <Children>
                 <EnumCombo>
                   <Name value="enumCombo1" />
+                  <Caption value="Filter by type" />
+                  <CaptionLength value="100px" />
                   <Panel.Height value="#" />
                   <Panel.Width value="300px" />
                   <Bindings>
                     <Binding SourceProperty="Data" Expression="form.type" />
-                    <Binding SourceProperty="IsRequiredMarkVisible" Expression="form.type.isRequired()" />
-                    <Binding SourceProperty="Caption" Expression="form.type.caption()" />
                   </Bindings>
                   <CssClass>
                     <CssClassConditional>
@@ -76,6 +76,7 @@
                   <Children>
                     <TextBox>
                       <Name value="textBox5" />
+                      <CaptionLength value="100px" />
                       <Panel.Height value="#" />
                       <Panel.Width value="300px" />
                       <Bindings>

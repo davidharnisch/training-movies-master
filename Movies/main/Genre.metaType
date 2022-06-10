@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<MetaType>
+  <Name value="Genre" />
+  <Caption value="Genre" />
+  <TypeSpec>
+    <AttributeType>
+      <BaseType value="Enum" />
+      <EnumValues>
+        <AttributeEnumValue>
+          <Name value="Action" />
+          <Caption value="Action" />
+          <Value value="Action" />
+        </AttributeEnumValue>
+        <AttributeEnumValue>
+          <Name value="Fantasy" />
+          <Caption value="Fantasy" />
+          <Value value="Fantasy" />
+        </AttributeEnumValue>
+        <AttributeEnumValue>
+          <Name value="SciFi" />
+          <Caption value="Sci-Fi" />
+          <Value value="SciFi" />
+        </AttributeEnumValue>
+        <AttributeEnumValue>
+          <Name value="Romantic" />
+          <Caption value="Romantic" />
+          <Value value="Romantic" />
+        </AttributeEnumValue>
+        <AttributeEnumValue>
+          <Name value="Documentary" />
+          <Caption value="Documentary" />
+          <Value value="Documentary" />
+        </AttributeEnumValue>
+        <AttributeEnumValue>
+          <Name value="Drama" />
+          <Caption value="Drama" />
+          <Value value="Drama" />
+        </AttributeEnumValue>
+      </EnumValues>
+    </AttributeType>
+  </TypeSpec>
+</MetaType>
