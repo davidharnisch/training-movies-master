@@ -1155,7 +1155,14 @@ form.detail.type = toLower(toString(form.type))
       <IsPrivate value="True" />
       <ActionLangBody IsValid="True">
         <Script><![CDATA[if (params.type = "breadcrumbClick") AND (params.data = "list") then
+
+	if form.detail.isTouched() then
+		if isTrue(page.confirm("If you did not update, you will loose your data")) then 
+		navigation.main.moviesList.go()
+		endif
+	else
 	navigation.main.moviesList.go()
+	endif
 endif]]></Script>
       </ActionLangBody>
       <DataContext>

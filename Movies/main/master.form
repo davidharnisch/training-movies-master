@@ -10,19 +10,78 @@
       <Panel.Height value="#" />
       <Panel.Width value="*" />
       <Children>
-        <Label>
-          <Name value="label1" />
-          <Data value="Records of series and movies" />
-          <Heading value="h1" />
+        <Panel>
+          <Name value="label1_parent" />
+          <Orientation value="Horizontal" />
           <Panel.Height value="#" />
           <Panel.Width value="*" />
+          <Children>
+            <Panel>
+              <Name value="label1_parent1" />
+              <Orientation value="Horizontal" />
+              <Panel.Height value="#" />
+              <Panel.Width value="*" />
+              <Children>
+                <Label>
+                  <Name value="label1" />
+                  <Data value="Records of series and movies" />
+                  <Heading value="h1" />
+                  <Panel.Height value="#" />
+                  <Panel.Width value="*" />
+                  <CssClass>
+                    <CssClassConditional>
+                      <ClassName value="{theme}-label" />
+                      <IsThemedStyle value="True" />
+                    </CssClassConditional>
+                  </CssClass>
+                </Label>
+              </Children>
+              <CssClass>
+                <CssClassConditional>
+                  <ClassName value="{theme}-panel" />
+                  <IsThemedStyle value="True" />
+                </CssClassConditional>
+              </CssClass>
+            </Panel>
+            <Panel>
+              <Name value="Statistics_parent" />
+              <Orientation value="Vertical" />
+              <Panel.Height value="#" />
+              <Panel.VerticalAlignment value="Bottom" />
+              <Panel.Width value="150px" />
+              <Children>
+                <Button>
+                  <Name value="Statistics" />
+                  <Caption value="View statistics" />
+                  <Panel.Height value="#" />
+                  <Panel.HorizontalAlignment value="Right" />
+                  <Panel.Width value="150px" />
+                  <OnClick>
+                    <ActionEvent ReferencedAction="~handler_Statistics_OnClick" />
+                  </OnClick>
+                  <CssClass>
+                    <CssClassConditional>
+                      <ClassName value="{theme}-button" />
+                      <IsThemedStyle value="True" />
+                    </CssClassConditional>
+                  </CssClass>
+                </Button>
+              </Children>
+              <CssClass>
+                <CssClassConditional>
+                  <ClassName value="{theme}-panel" />
+                  <IsThemedStyle value="True" />
+                </CssClassConditional>
+              </CssClass>
+            </Panel>
+          </Children>
           <CssClass>
             <CssClassConditional>
-              <ClassName value="{theme}-label" />
+              <ClassName value="{theme}-panel" />
               <IsThemedStyle value="True" />
             </CssClassConditional>
           </CssClass>
-        </Label>
+        </Panel>
         <Breadcrumbs identity="Breadcrumbs.4d3eeadca3c54f1caa1d677db7e07acb">
           <Name value="breadcrumbs1" />
           <controller reference="+GlobalApiObjects.breadcrumbsCtrl" />
@@ -148,6 +207,16 @@
       <IsPrivate value="True" />
       <ActionLangBody IsValid="True">
         <Script><![CDATA[form.apiobjects.eventDispatcher1.sendMessage("master", "breadcrumbClick", params.id)]]></Script>
+      </ActionLangBody>
+      <DataContext>
+        <ActionDataContext />
+      </DataContext>
+    </ActionBlock>
+    <ActionBlock>
+      <Name value="handler_Statistics_OnClick" />
+      <IsPrivate value="True" />
+      <ActionLangBody IsValid="True">
+        <Script><![CDATA[navigation.main.Statistics.go()]]></Script>
       </ActionLangBody>
       <DataContext>
         <ActionDataContext />

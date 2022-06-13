@@ -11,5 +11,6 @@
     <PackageItem Src="master.form" />
     <PackageItem Src="total.dataEntity" />
     <ResourceItem ResourceName="style.css" LinkerAction="Css" OutputFileName="style.css" Src="style.css" />
+    <PackageItem Src="Statistics.form" />
   </Items>
 </Package>

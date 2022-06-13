@@ -17,6 +17,11 @@
           <params value="id" />
           <url value="detail" />
         </UrlRouteCfg>
+        <UrlRouteCfg identity="UrlRouter.69a71809c45249cbb2999d13bb9100c0">
+          <form reference="+UiParts.Statistics" />
+          <params value="id" />
+          <url value="statistics" />
+        </UrlRouteCfg>
       </routes>
     </UrlRouter>
     <Page identity="Page.f7aa0c151c64407daef13910dcf7b72a">
