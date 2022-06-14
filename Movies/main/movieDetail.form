@@ -10,6 +10,27 @@
       <Panel.Height value="#" />
       <Panel.Width value="*" />
       <Children>
+        <BusyIndicator identity="busyIndicator.4a8ce8836eb04d7bbc155c7119f0193e">
+          <Name value="busyIndicator1" />
+          <Panel.Height value="#" />
+          <Panel.Width value="*" />
+          <Bindings>
+            <Binding SourceProperty="IsVisible" Expression="form.isVisible" />
+          </Bindings>
+        </BusyIndicator>
+        <Label>
+          <Name value="label4" />
+          <Data value="Detail" />
+          <Heading value="h2" />
+          <Panel.Height value="#" />
+          <Panel.Width value="300px" />
+          <CssClass>
+            <CssClassConditional>
+              <ClassName value="{theme}-label" />
+              <IsThemedStyle value="True" />
+            </CssClassConditional>
+          </CssClass>
+        </Label>
         <Panel>
           <Name value="panel3" />
           <Orientation value="Vertical" />
@@ -358,6 +379,23 @@
                                   <Name value="panel16" />
                                   <Orientation value="Horizontal" />
                                   <Children>
+                                    <CheckBox>
+                                      <Name value="checkBox1" />
+                                      <CaptionPosition value="Hide" />
+                                      <Panel.Height value="#" />
+                                      <Panel.Width value="50px" />
+                                      <Bindings>
+                                        <Binding SourceProperty="Data" Expression="isChecked" />
+                                        <Binding SourceProperty="IsRequiredMarkVisible" Expression="isChecked.isRequired()" />
+                                        <Binding SourceProperty="Caption" Expression="isChecked.caption()" />
+                                      </Bindings>
+                                      <CssClass>
+                                        <CssClassConditional>
+                                          <ClassName value="{theme}-checkbox" />
+                                          <IsThemedStyle value="True" />
+                                        </CssClassConditional>
+                                      </CssClass>
+                                    </CheckBox>
                                     <TextBox>
                                       <Name value="textBox7" />
                                       <CaptionLength value="100px" />
@@ -395,21 +433,50 @@
                                 </CssClassConditional>
                               </CssClass>
                             </Repeater>
-                            <Button>
-                              <Name value="addGenre" />
-                              <Caption value="Add new genre" />
+                            <Panel>
+                              <Name value="addGenre_parent" />
+                              <Orientation value="Vertical" />
                               <Panel.Height value="#" />
                               <Panel.Width value="150px" />
-                              <OnClick>
-                                <ActionEvent ReferencedAction="~handler_addActor_OnClick3" />
-                              </OnClick>
+                              <Children>
+                                <Button>
+                                  <Name value="addGenre" />
+                                  <Caption value="Add new genre" />
+                                  <Panel.Height value="#" />
+                                  <Panel.Width value="*" />
+                                  <OnClick>
+                                    <ActionEvent ReferencedAction="~handler_addActor_OnClick3" />
+                                  </OnClick>
+                                  <CssClass>
+                                    <CssClassConditional>
+                                      <ClassName value="{theme}-button" />
+                                      <IsThemedStyle value="True" />
+                                    </CssClassConditional>
+                                  </CssClass>
+                                </Button>
+                                <Button>
+                                  <Name value="deleteActor1" />
+                                  <Caption value="Delete Genre" />
+                                  <Panel.Height value="#" />
+                                  <Panel.Width value="150px" />
+                                  <OnClick>
+                                    <ActionEvent ReferencedAction="~handler_addActor_OnClick11" />
+                                  </OnClick>
+                                  <CssClass>
+                                    <CssClassConditional>
+                                      <ClassName value="{theme}-button" />
+                                      <IsThemedStyle value="True" />
+                                    </CssClassConditional>
+                                  </CssClass>
+                                </Button>
+                              </Children>
                               <CssClass>
                                 <CssClassConditional>
-                                  <ClassName value="{theme}-button" />
+                                  <ClassName value="{theme}-panel" />
                                   <IsThemedStyle value="True" />
                                 </CssClassConditional>
                               </CssClass>
-                            </Button>
+                            </Panel>
                           </Children>
                           <CssClass>
                             <CssClassConditional>
@@ -964,11 +1031,35 @@
             </Validator>
           </Validators>
         </Attribute>
+        <Attribute>
+          <Name value="isVisible" />
+          <Caption value="Is visible" />
+          <DeclaredType>
+            <AttributeType>
+              <BaseType value="Bool" />
+            </AttributeType>
+          </DeclaredType>
+        </Attribute>
       </Children>
       <Modifiers>
         <Modifier>
           <Name value="modifier_22B48249_starring" />
           <SourcePath value="detail.starring" />
+          <Children>
+            <Attribute>
+              <Name value="isChecked" />
+              <Caption value="Is checked" />
+              <DeclaredType>
+                <AttributeType>
+                  <BaseType value="Bool" />
+                </AttributeType>
+              </DeclaredType>
+            </Attribute>
+          </Children>
+        </Modifier>
+        <Modifier>
+          <Name value="modifier_22C64D5B_genres" />
+          <SourcePath value="detail.genres" />
           <Children>
             <Attribute>
               <Name value="isChecked" />
@@ -1036,13 +1127,17 @@ endif
       <Name value="loadData" />
       <ActionLangBody IsValid="True">
         <Script><![CDATA[
+form.isVisible = true
 var response = apiobjects.moviesServer.getAsync("record?id=" + form.id)
 
 
 if response.isError() then
 	system.consoleError(response.getErrorMessage())
 else
+	
 	form.detail.fromJson(response.getJsonString())
+	
+
 	
 	// Enum type to be checked based on type of movie/series
 	if form.detail.type = "movie" then	
@@ -1057,6 +1152,7 @@ else
 	
 	
 endif
+form.isVisible = false
 
 
 
@@ -1070,7 +1166,8 @@ endif
       <Name value="handler_Update_OnClick" />
       <IsPrivate value="True" />
       <ActionLangBody IsValid="True">
-        <Script><![CDATA[var data = form.detail.toJson()
+        <Script><![CDATA[form.isVisible = true
+var data = form.detail.toJson()
 
 var response = apiobjects.moviesServer.postAsync("update",data)
 
@@ -1082,7 +1179,9 @@ else
 	//navigation.main.moviesList.go()
 
 	
-endif]]></Script>
+endif
+
+form.isVisible = false]]></Script>
       </ActionLangBody>
       <DataContext>
         <ActionDataContext />
@@ -1092,9 +1191,9 @@ endif]]></Script>
       <Name value="handler_Delete_OnClick" />
       <IsPrivate value="True" />
       <ActionLangBody IsValid="True">
-        <Script><![CDATA[
-if isTrue(page.confirm("Are you sure?? You will loose all your data")) then 
+        <Script><![CDATA[if isTrue(page.confirm("Are you sure?? You will loose all your data")) then 
 
+form.isVisible = true
 var data = form.detail.toJson()
 
 var response = apiobjects.moviesServer.postAsync("delete",data)
@@ -1112,7 +1211,9 @@ endif
 
 else
 
-endif]]></Script>
+endif
+
+form.isVisible = false]]></Script>
       </ActionLangBody>
       <DataContext>
         <ActionDataContext />
@@ -1161,8 +1262,29 @@ form.detail.type = toLower(toString(form.type))
 		navigation.main.moviesList.go()
 		endif
 	else
-	navigation.main.moviesList.go()
+		navigation.main.moviesList.go()
 	endif
+	
+	
+	
+	
+endif
+
+
+
+if (params.type = "statisticsClick") AND (params.data = "viewStatistics") then
+
+	
+	if form.detail.isTouched() then
+		if isTrue(page.confirm("If you did not update, you will loose your data")) then 
+		navigation.main.Statistics.go()
+		endif
+	else
+		navigation.main.Statistics.go()
+	endif
+	
+	
+	
 endif]]></Script>
       </ActionLangBody>
       <DataContext>
@@ -1173,7 +1295,7 @@ endif]]></Script>
       <Name value="handler_button1_OnClick2" />
       <IsPrivate value="True" />
       <ActionLangBody IsValid="True">
-        <Script><![CDATA[
+        <Script><![CDATA[form.isVisible = true
 var data = form.detail.toJson()
 
 var response = apiobjects.moviesServer.postAsync("create",data)
@@ -1183,7 +1305,7 @@ if response.isError() then
 	system.consoleError(response.getErrorMessage())
 else
 	
-	
+	form.isVisible = false
 	navigation.main.moviesList.go()
 
 	
@@ -1219,7 +1341,7 @@ endfor]]></Script>
       <Name value="handler_Update_OnClick1" />
       <IsPrivate value="True" />
       <ActionLangBody IsValid="True">
-        <Script><![CDATA[
+        <Script><![CDATA[form.isVisible = true
 
 if form.detail.isValid() then
 
@@ -1238,7 +1360,9 @@ else
 
 system.alert("You did not fill all required fields")
 
-endif]]></Script>
+endif
+
+form.isVisible = false]]></Script>
       </ActionLangBody>
       <DataContext>
         <ActionDataContext />
@@ -1294,6 +1418,39 @@ endfor]]></Script>
       <IsPrivate value="True" />
       <ActionLangBody IsValid="True">
         <Script><![CDATA[form.detail.genres.addItem()]]></Script>
+      </ActionLangBody>
+      <DataContext>
+        <ActionDataContext />
+      </DataContext>
+    </ActionBlock>
+    <ActionBlock>
+      <Name value="handler_addActor_OnClick11" />
+      <IsPrivate value="True" />
+      <ActionLangBody IsValid="True">
+        <Script><![CDATA[/*
+if isTrue() then
+
+form.detail.starring.removeItem(1)
+
+endif
+
+*/
+
+foreach a in form.detail.genres do
+
+if a.isChecked = True then
+
+var x = a.index()
+form.detail.genres.removeItem(x)
+
+else
+
+
+
+
+endif
+
+endfor]]></Script>
       </ActionLangBody>
       <DataContext>
         <ActionDataContext />

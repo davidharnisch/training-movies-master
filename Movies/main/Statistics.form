@@ -10,6 +10,27 @@
       <Panel.Height value="#" />
       <Panel.Width value="*" />
       <Children>
+        <BusyIndicator identity="busyIndicator.4a8ce8836eb04d7bbc155c7119f0193e">
+          <Name value="busyIndicator1" />
+          <Panel.Height value="#" />
+          <Panel.Width value="*" />
+          <Bindings>
+            <Binding SourceProperty="IsVisible" Expression="form.isVisible" />
+          </Bindings>
+        </BusyIndicator>
+        <Label>
+          <Name value="label4" />
+          <Data value="Statistics" />
+          <Heading value="h2" />
+          <Panel.Height value="#" />
+          <Panel.Width value="300px" />
+          <CssClass>
+            <CssClassConditional>
+              <ClassName value="{theme}-label" />
+              <IsThemedStyle value="True" />
+            </CssClassConditional>
+          </CssClass>
+        </Label>
         <Panel>
           <Name value="totalRecords_parent" />
           <Orientation value="Horizontal" />
@@ -102,7 +123,7 @@
           <Children>
             <Label>
               <Name value="label12" />
-              <Data value="Top Movies" />
+              <Data value="Top 3 Movies" />
               <Heading value="h3" />
               <Panel.Height value="#" />
               <Panel.Width value="300px" />
@@ -124,7 +145,6 @@
                 <DataColumn>
                   <Name value="Name1" />
                   <Caption value="Name 1" />
-                  <Panel.Width value="*" />
                   <Content>
                     <Label>
                       <Name value="label111" />
@@ -149,7 +169,6 @@
                 <DataColumn>
                   <Name value="Type1" />
                   <Caption value="Type 1" />
-                  <Panel.Width value="*" />
                   <Content>
                     <Label>
                       <Name value="label211" />
@@ -174,7 +193,6 @@
                 <DataColumn>
                   <Name value="Year1" />
                   <Caption value="Score" />
-                  <Panel.Width value="*" />
                   <Content>
                     <Label>
                       <Name value="label31" />
@@ -198,7 +216,6 @@
                 </DataColumn>
                 <DataColumn>
                   <Name value="CTA1" />
-                  <Panel.Width value="*" />
                   <Content>
                     <Panel>
                       <Name value="panel21" />
@@ -259,7 +276,7 @@
           <Children>
             <Label>
               <Name value="label1" />
-              <Data value="Top Series" />
+              <Data value="Top 3 Series" />
               <Heading value="h3" />
               <Panel.Height value="#" />
               <Panel.Width value="300px" />
@@ -281,7 +298,6 @@
                 <DataColumn>
                   <Name value="Name" />
                   <Caption value="Name" />
-                  <Panel.Width value="*" />
                   <Content>
                     <Label>
                       <Name value="label11" />
@@ -306,7 +322,6 @@
                 <DataColumn>
                   <Name value="Type" />
                   <Caption value="Type" />
-                  <Panel.Width value="*" />
                   <Content>
                     <Label>
                       <Name value="label21" />
@@ -331,7 +346,6 @@
                 <DataColumn>
                   <Name value="Year" />
                   <Caption value="Score" />
-                  <Panel.Width value="*" />
                   <Content>
                     <Label>
                       <Name value="label3" />
@@ -355,7 +369,6 @@
                 </DataColumn>
                 <DataColumn>
                   <Name value="CTA" />
-                  <Panel.Width value="*" />
                   <Content>
                     <Panel>
                       <Name value="panel2" />
@@ -438,7 +451,6 @@
                 <DataColumn>
                   <Name value="Name2" />
                   <Caption value="Name 2" />
-                  <Panel.Width value="*" />
                   <Content>
                     <Label>
                       <Name value="label112" />
@@ -463,7 +475,6 @@
                 <DataColumn>
                   <Name value="Type2" />
                   <Caption value="Type 2" />
-                  <Panel.Width value="*" />
                   <Content>
                     <Label>
                       <Name value="label212" />
@@ -488,7 +499,6 @@
                 <DataColumn>
                   <Name value="Year2" />
                   <Caption value="Score" />
-                  <Panel.Width value="*" />
                   <Content>
                     <Label>
                       <Name value="label32" />
@@ -512,7 +522,6 @@
                 </DataColumn>
                 <DataColumn>
                   <Name value="CTA2" />
-                  <Panel.Width value="*" />
                   <Content>
                     <Panel>
                       <Name value="panel22" />
@@ -640,6 +649,15 @@
             </AttributeType>
           </DeclaredType>
         </Attribute>
+        <Attribute>
+          <Name value="isVisible" />
+          <Caption value="Is visible" />
+          <DeclaredType>
+            <AttributeType>
+              <BaseType value="Bool" />
+            </AttributeType>
+          </DeclaredType>
+        </Attribute>
       </Children>
     </DataContext>
   </DataContext>
@@ -671,7 +689,8 @@ form.actions.loadData()
     <ActionBlock>
       <Name value="loadData" />
       <ActionLangBody IsValid="True">
-        <Script><![CDATA[var response = apiobjects.moviesServer.getAsync("list")
+        <Script><![CDATA[form.isVisible = true
+var response = apiobjects.moviesServer.getAsync("list")
 
 
 if response.isError() then
@@ -690,13 +709,40 @@ form.totalAfter2000 = form.movieStatistics.where(current.yearOfRelease >= 2000).
 
 
 form.bestRaitingMovies.fromJson(form.movieStatistics.where(current.type = "movie").orderBy(current.rating.score, true).toJson())
+
+	foreach r in form.bestRaitingMovies do
+
+		var x = r.index()
+		
+		if x > 3 then
+		
+		form.bestRaitingMovies.removeItem(x)
+		endif
+
+		
+	endfor
+
 form.besRaitingSeries.fromJson(form.movieStatistics.where(current.type = "series").orderBy(current.rating.score, true).toJson())
+
+	foreach r in form.besRaitingSeries do
+
+		var x = r.index()
+		
+		if x > 3 then
+		
+		form.besRaitingSeries.removeItem(x)
+		endif
+
+		
+	endfor
 
 
 form.movieStatistics.fromJson(form.movieStatistics.orderBy(current.name, true).toJson())
 
 	
-endif]]></Script>
+endif
+
+form.isVisible = false]]></Script>
       </ActionLangBody>
       <DataContext>
         <ActionDataContext />
@@ -710,7 +756,8 @@ endif]]></Script>
 
 	navigation.main.moviesList.go()
 	
-endif]]></Script>
+endif
+]]></Script>
       </ActionLangBody>
       <DataContext>
         <ActionDataContext />

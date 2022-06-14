@@ -216,7 +216,9 @@
       <Name value="handler_Statistics_OnClick" />
       <IsPrivate value="True" />
       <ActionLangBody IsValid="True">
-        <Script><![CDATA[navigation.main.Statistics.go()]]></Script>
+        <Script><![CDATA[form.apiobjects.eventDispatcher1.sendMessage("master", "statisticsClick", "viewStatistics")
+
+//navigation.main.Statistics.go()]]></Script>
       </ActionLangBody>
       <DataContext>
         <ActionDataContext />

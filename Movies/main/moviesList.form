@@ -10,6 +10,27 @@
       <Panel.Height value="#" />
       <Panel.Width value="*" />
       <Children>
+        <BusyIndicator identity="busyIndicator.4a8ce8836eb04d7bbc155c7119f0193e">
+          <Name value="busyIndicator1" />
+          <Panel.Height value="#" />
+          <Panel.Width value="*" />
+          <Bindings>
+            <Binding SourceProperty="IsVisible" Expression="form.isVisible" />
+          </Bindings>
+        </BusyIndicator>
+        <Label>
+          <Name value="label4" />
+          <Data value="Main" />
+          <Heading value="h2" />
+          <Panel.Height value="#" />
+          <Panel.Width value="300px" />
+          <CssClass>
+            <CssClassConditional>
+              <ClassName value="{theme}-label" />
+              <IsThemedStyle value="True" />
+            </CssClassConditional>
+          </CssClass>
+        </Label>
         <Button>
           <Name value="button1" />
           <Caption value="Create new" />
@@ -35,7 +56,7 @@
               <Name value="enumCombo1_parent" />
               <Orientation value="Vertical" />
               <Panel.Height value="#" />
-              <Panel.Width value="50%" />
+              <Panel.Width value="40%" />
               <Children>
                 <EnumCombo>
                   <Name value="enumCombo1" />
@@ -65,14 +86,14 @@
               <Name value="textBox5_parent" />
               <Orientation value="Vertical" />
               <Panel.Height value="#" />
-              <Panel.Width value="50%" />
+              <Panel.Width value="60%" />
               <Children>
                 <Panel>
                   <Name value="textBox5_parent1" />
                   <Orientation value="Horizontal" />
                   <Panel.Height value="#" />
-                  <Panel.HorizontalAlignment value="Center" />
-                  <Panel.Width value="300px" />
+                  <Panel.HorizontalAlignment value="Right" />
+                  <Panel.Width value="600px" />
                   <Children>
                     <TextBox>
                       <Name value="textBox5" />
@@ -98,6 +119,21 @@
                       <Panel.Width value="150px" />
                       <OnClick>
                         <ActionEvent ReferencedAction="~handler_Search_OnClick" />
+                      </OnClick>
+                      <CssClass>
+                        <CssClassConditional>
+                          <ClassName value="{theme}-button" />
+                          <IsThemedStyle value="True" />
+                        </CssClassConditional>
+                      </CssClass>
+                    </Button>
+                    <Button>
+                      <Name value="Clear" />
+                      <Caption value="Clear filter" />
+                      <Panel.Height value="#" />
+                      <Panel.Width value="150px" />
+                      <OnClick>
+                        <ActionEvent ReferencedAction="~handler_Search_OnClick1" />
                       </OnClick>
                       <CssClass>
                         <CssClassConditional>
@@ -313,6 +349,15 @@
             <AttributeType />
           </DeclaredType>
         </Attribute>
+        <Attribute>
+          <Name value="isVisible" />
+          <Caption value="Is visible" />
+          <DeclaredType>
+            <AttributeType>
+              <BaseType value="Bool" />
+            </AttributeType>
+          </DeclaredType>
+        </Attribute>
       </Children>
     </DataContext>
   </DataContext>
@@ -338,7 +383,7 @@ form.actions.loadData()
     <ActionBlock>
       <Name value="loadData" />
       <ActionLangBody IsValid="True">
-        <Script><![CDATA[
+        <Script><![CDATA[form.isVisible = true
 
 var query = "list"
 
@@ -371,14 +416,16 @@ else
 	if hasValue(form.searchByActor) then
 	form.movies.fromJson(response.getJsonString())
 	
-	var filtered = form.movies.where(indexOf(toLower(current.name),toLower(form.searchByActor))>0).toJson()
-	//var filtered = form.monstersFilterList.where(current.name = form.searchByName).toJson()
+	var filtered = form.movies.where(current.starring.exists(var actor => indexOf(toLower(actor.actorName),toLower(form.searchByActor))>0)).toJson()
 	form.movies.fromJson(filtered)
+	
 	
 endif
 	
 	
-endif]]></Script>
+endif
+
+form.isVisible = false]]></Script>
       </ActionLangBody>
       <DataContext>
         <ActionDataContext />
@@ -399,6 +446,7 @@ endif]]></Script>
       <IsPrivate value="True" />
       <ActionLangBody IsValid="True">
         <Script><![CDATA[form.actions.loadData()
+form.type.clear()
 form.searchByActor.clear()]]></Script>
       </ActionLangBody>
       <DataContext>
@@ -448,5 +496,48 @@ navigation.main.movieDetail.go()
         <ActionDataContext />
       </DataContext>
     </ActionBlock>
+    <ActionBlock>
+      <Name value="handler_Search_OnClick1" />
+      <IsPrivate value="True" />
+      <ActionLangBody IsValid="True">
+        <Script><![CDATA[if (form.type = enums.Type.Movies) or (form.type = enums.Type.Series) then
+
+form.type.clear()
+
+endif
+
+
+form.actions.loadData()]]></Script>
+      </ActionLangBody>
+      <DataContext>
+        <ActionDataContext />
+      </DataContext>
+    </ActionBlock>
+    <ActionBlock>
+      <Name value="handler_eventDispatcher1_OnMessage" />
+      <IsPrivate value="True" />
+      <ActionLangBody IsValid="True">
+        <Script><![CDATA[if (params.type = "statisticsClick") AND (params.data = "viewStatistics") then
+
+	
+		navigation.main.Statistics.go()
+	
+	
+	
+	
+endif]]></Script>
+      </ActionLangBody>
+      <DataContext>
+        <ActionDataContext />
+      </DataContext>
+    </ActionBlock>
   </Actions>
+  <ApiObjects>
+    <EventDispatcher identity="EventDispatcher.eb764ceb30274f1e9a3d051d512d6b26">
+      <Name value="eventDispatcher1" />
+      <OnMessage>
+        <ActionEvent ReferencedAction="~handler_eventDispatcher1_OnMessage" />
+      </OnMessage>
+    </EventDispatcher>
+  </ApiObjects>
 </Form>

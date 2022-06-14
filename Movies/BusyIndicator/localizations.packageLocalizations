@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<PackageLocalizations>
+  <Name value="localizations" />
+  <Strings>
+    <LocalizedString LocID="loadingPleaseWait">
+      <Values>
+        <LocaleValue Lang="en" Value="Loading, please wait..." />
+        <LocaleValue Lang="cs" Value="Načítání, počkejte prosím..." />
+        <LocaleValue Lang="fi" Value="Ladataan, odota..." />
+        <LocaleValue Lang="sv" Value="Laddar, vänta..." />
+        <LocaleValue Lang="sr" Value="Utovar, sačekajte..." />
+        <LocaleValue Lang="me" Value="Utovar, sačekajte..." />
+      </Values>
+    </LocalizedString>
+    <LocalizedString LocID="loadingIsCompleted">
+      <Values>
+        <LocaleValue Lang="en" Value="The loading is completed" />
+        <LocaleValue Lang="cs" Value="Načítání je dokončeno" />
+        <LocaleValue Lang="fi" Value="Lataus on valmis" />
+        <LocaleValue Lang="sv" Value="Inläsningen är klar" />
+        <LocaleValue Lang="sr" Value="Učitavanje je dovršeno" />
+        <LocaleValue Lang="me" Value="Učitavanje je dovršeno" />
+      </Values>
+    </LocalizedString>
+  </Strings>
+</PackageLocalizations>

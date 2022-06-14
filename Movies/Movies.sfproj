@@ -62,5 +62,9 @@
       <ReferencedIdentity value="groupItem.5a6b8e35dae64b4cafe1e0c390297e27" />
       <ReferencedVersion value="1.2.0" />
     </PackageReference>
+    <PackageReference Alias="busyIndicator" IsComponentLib="True" Origin="BusyIndicator\BusyIndicator.package">
+      <ReferencedIdentity value="busyIndicator.4a8ce8836eb04d7bbc155c7119f0193e" />
+      <ReferencedVersion value="2.2.4" />
+    </PackageReference>
   </PackageReferences>
 </ProjectRoot>
